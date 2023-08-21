@@ -45,7 +45,8 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp): bool
     {
-        //
+        // destroyメソッドからupdateメソッドを呼び出すことで同じロジックを定義できる。Chirpを更新する権限を持つ人は、Chirpを削除する権限も持つことになる。
+        return $this->update($user, $chirp);
     }
 
     /**
